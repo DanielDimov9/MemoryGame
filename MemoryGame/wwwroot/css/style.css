@@ -1,23 +1,22 @@
-﻿* {
+﻿﻿ {
     margin: 0;
     padding: 0;
 }
 
-    *,
-    *::before,
-    *::after {
-        box-sizing: inherit;
-    }
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
 
 html {
     box-sizing: border-box;
 }
 
 body {
-    /* Background pattern from Subtle Patterns */
+  
     background: url('../img/Background.jpg');
     font-family: "Open Sans", sans-serif;
-    /*one Em roughly ten pixels (16 x 62.5% = 10)*/
     font-size: 62.5%;
     letter-spacing: 1.5px;
     margin: 0;
@@ -68,9 +67,7 @@ h3 {
     font-weight: 400;
 }
 
-/*----------------------------------  
-Section - Score Panel
-------------------------------------*/
+
 
 .score-panel {
     font-size: 1.4em;
@@ -101,17 +98,11 @@ Section - Score Panel
 .timer {
     font-size: 1em;
 }
-/*----------------------------------  
-Section - Modal
-------------------------------------*/
-/*
-Help with the modal from
-https://www.w3schools.com/howto/howto_css_modals.asp
-*/
 
-/* Modal (background) */
+
+
 .modal {
-    /*Hidden by default */
+    
     display: none;
     position: fixed;
     z-index: 99;
@@ -119,25 +110,25 @@ https://www.w3schools.com/howto/howto_css_modals.asp
     top: 0;
     width: 100%;
     height: 100%;
-    /* Fallback color */
+   
     background-color: rgb(46, 61, 73);
-    /* With opacity */
+    
     background-color: rgba(46, 61, 73, 0.6);
 }
-/* Modal Content/Box */
+
 .modal-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    /* 5% from the top and centered */
+  
     margin: 5% auto;
     border: 0.8em solid #fc4;
     padding-right: 2em;
     width: 80%;
 }
-/* The Close Button */
+
 .close {
     align-self: flex-end;
     color: #28e;
@@ -150,7 +141,7 @@ https://www.w3schools.com/howto/howto_css_modals.asp
         text-decoration: none;
         cursor: pointer;
     }
-/* Modal Image*/
+
 .modal-img {
     display: inline-block;
     margin: 1em 0 1em;
@@ -169,16 +160,13 @@ p.stats {
     background: #28e;
     margin-bottom: 1em;
 }
-/*----------------------------------  
-Deck of Cards
-------------------------------------*/
-/*Mobile first responsivness*/
+
 .memory-game {
     background: linear-gradient(to bottom, #5cf, #28e);
     border-radius: 1.5em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 35em;
     margin-bottom: 6em;
@@ -189,6 +177,7 @@ Deck of Cards
 .memory-game,
 .card {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+
 }
 
 .card {
@@ -197,10 +186,8 @@ Deck of Cards
     height: 7em;
     width: 7em;
 }
-/*
-To disable the color highlight if and img is clicked
-https://stackoverflow.com/questions/21107439/disable-or-change-firefoxs-element-image-highlight-color
-*/
+
+
 img {
     user-select: none;
     width: 6em;
@@ -210,7 +197,7 @@ img {
     visibility: hidden;
 }
 
-.memory-game 
+.memory-game
 .card.flip {
     background: #fff;
     cursor: default;
@@ -248,6 +235,7 @@ img {
         transform: scale(1);
     }
 }
+
 @media screen and (min-width: 550px) {
     .memory-game {
         height: 50em;
@@ -272,9 +260,7 @@ img {
         font-size: 1.8em;
     }
 }
-/*---------------------------------- 
-Desktops
-------------------------------------*/
+
 @media screen and (min-width: 800px) {
 
     h1 {
@@ -310,7 +296,7 @@ Desktops
     .modal-content h2 {
         font-size: 5em;
     }
-    /* Modal Image*/
+ 
     .modal-img {
         width: 30em;
     }

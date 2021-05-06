@@ -1,4 +1,4 @@
-﻿const cards = [ "Luigi.jpg", "Luigi.jpg", "Walugi.jpg", "Walugi.jpg","Toad.jpg", "Toad.jpg", "Yoshi.jpg", "Yoshi.jpg","Mario.jpg","Mario.jpg","Goomba.jpg","Goomba.jpg"]
+﻿const cards = ["Luigi.jpg", "Luigi.jpg", "Walugi.jpg", "Walugi.jpg", "Toad.jpg", "Toad.jpg", "Yoshi.jpg", "Yoshi.jpg", "Mario.jpg", "Mario.jpg", "Goomba.jpg", "Goomba.jpg"]
 const cardsContainer = document.querySelector(".memory-game");
 
 let matchedCards = [];
@@ -16,6 +16,7 @@ const playAgain = document.querySelector(".play-again-btn");
 const moveCounter = document.querySelector(".moves-counter");
 const star = document.getElementById("star-rating").querySelectorAll(".star");
 
+
 // Shuffle function From http://stackoverflow.com/a/2450976
 function shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
@@ -31,7 +32,7 @@ function shuffle(array) {
     return array;
 }
 
-function startGame() {
+function createBackground() {
     const shuffledDeck = shuffle(cards);
     for (let i = 0; i < shuffledDeck.length; i++) {
         const liTag = document.createElement('LI');
@@ -39,11 +40,10 @@ function startGame() {
         const addImage = document.createElement("IMG");
         liTag.appendChild(addImage);
         addImage.setAttribute("src", "img/" + shuffledDeck[i]);
-        addImage.setAttribute("alt", "wario");
         cardsContainer.appendChild(liTag);
     }
 }
-startGame();
+createBackground();
 
 function removeCard() {
     while (cardsContainer.hasChildNodes()) {
@@ -89,11 +89,11 @@ function movesCounter() {
     moves++;
 }
 function starRating() {
-    if (moves === 15) {
+    if (moves === 12) {
         star[2].firstElementChild.classList.remove("fa-star");
         starCount--;
     }
-    if (moves === 19) {
+    if (moves === 15) {
         star[1].firstElementChild.classList.remove("fa-star");
         starCount--;
     }
