@@ -6,55 +6,176 @@
     <
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <title>Memory game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Cormorant+SC:300,400">
+    <link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="assets/css/custom.css">>
 
-
-    <title>Memory game</title>
-    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>Memory Game</h1>
-            <h2>Super Mario</h2>
-            <p>Flip over two cards and try find a match</p>
+        <header>
+            <h1>Super Mario</h1>
+            <h2>Match the heroes</h2>
         </header>
+
         <section class="score-panel">
-            <h3>Score Panel</h3>
-            <ul id="star-rating" class="star-rating">
-                <li class="star"><i class="fa fa-star"></i></li>
-                <li class="star"><i class="fa fa-star"></i></li>
-                <li class="star"><i class="fa fa-star"></i></li>
+            <ul class="stars">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
             </ul>
-            <span class="moves-counter">0</span> Moves
-            <div class="timer-container">
-                <span class="timer"><i class="fa fa-hourglass-start"></i> Timer: 00:00</span>
+            <div class="moves">
+                <p class="paragraph_moves">Moves: 0</p>
             </div>
-            <div class="reset">
-                <button class="btn reset-btn">Reset <i class="fa fa-repeat"></i></button>
+            <div class="timer">
+                <p class="fa fa-hourglass-start"><span>time</span> 00 : 00</p>
+            </div>
+            <button id="restart">
+                <i class="fa fa-repeat"></i> Restart
+            </button>
+          
+        </section>
+
+        <section class="deck_container">
+            <ul class="deck">
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="img/SuperMario.jpg" class="image_top" alt="Super mario">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="winner_message">
+            <div class="container">
+                <h2 class="winner_title">Congratulations!</h2>
+                <p>You won the game with:</p>
+                <div class="line"></div>
+                <p class="final_moves">20  moves</p>
+                <p>Stars:</p>
+                <ul class="winning_stars">
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                </ul>
+                <p class="final_time">Time 00:25</p>
+                <div class="line"></div>
+                <p>Great job!</p>
+                <img class="modal-img" src="img/Wario.jpg" alt="Wario">
+                <button type="button" class="play_again">Play again?</button>
             </div>
         </section>
-        <ul class="memory-game">
-         
-            
-        </ul>
-        <section class="win-game-modal">
-            <div id="modal" class="modal">
-               
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Congratulations 🎉</h2>
-                    <p>You have won the game and found all 6 pairs of cards.</p>
-                    <img class="modal-img" src="img/Wario.jpg" alt="Wario">
-                    <button class="btn play-again-btn">Play Again?</button>
-                </div>
-            </div>
-        </section>
-    </div>
+        </div>
 
         <script src="js/script.js"></script>
 </body>

@@ -1,6 +1,5 @@
-﻿﻿ {
-    margin: 0;
-    padding: 0;
+﻿html {
+    box-sizing: border-box;
 }
 
 *,
@@ -9,18 +8,28 @@
     box-sizing: inherit;
 }
 
-html {
-    box-sizing: border-box;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
 }
 
 body {
-  
-    background: url('../img/Background.jpg');
-    font-family: "Open Sans", sans-serif;
-    font-size: 62.5%;
-    letter-spacing: 1.5px;
-    margin: 0;
-    text-align: center;
+    background: #29282d url(../img/Background.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font: 18px/ 1.33 'Cormorant SC', serif;
+    color: #fff;
 }
 
 .container {
@@ -28,280 +37,322 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 0.5em;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-ul > li {
-    list-style: none;
+header {
+    padding: 1rem 2rem 2rem;
 }
-
-.card,
-.reset-btn {
-    cursor: pointer;
-}
-
-.btn {
-    border-radius: 1em;
-    border: none;
-    color: #fff;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-    padding: 0.8em;
-}
-
 
 h1 {
-    font-size: 3em;
-    font-weight: 400;
+    font-size: 3.2rem;
+    font-weight: 300;
+    text-align: center;
 }
 
 h2 {
-    font-size: 2.5em;
-    font-weight: 600;
-}
-
-p {
-    font-size: 1.6em;
-}
-
-h3 {
-    font-weight: 400;
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-align: center;
 }
 
 
+/*
+ * Styles for the deck of cards
+ */
 
-.score-panel {
-    font-size: 1.4em;
-    padding: 1em 0 2em;
-}
-
-.star-rating > li {
-    display: inline-block;
-    padding: 0.5em;
-}
-
-.moves-counter {
-    padding: 0.5em;
-}
-
-.reset-btn {
-    background: #000;
-}
-
-.timer-container {
-    background: #fff;
-    border-radius: 0.5em;
-    color: #000;
-    margin: 0.5em;
-    padding: 0.5em;
-}
-
-.timer {
-    font-size: 1em;
-}
-
-
-
-.modal {
-    
-    display: none;
-    position: fixed;
-    z-index: 99;
-    left: 0;
-    top: 0;
+.deck {
     width: 100%;
-    height: 100%;
-   
-    background-color: rgb(46, 61, 73);
-    
-    background-color: rgba(46, 61, 73, 0.6);
-}
-
-.modal-content {
+    padding: 1rem 2rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    background-color: #fff;
-  
-    margin: 5% auto;
-    border: 0.8em solid #fc4;
-    padding-right: 2em;
-    width: 80%;
+    margin: 0 0;
 }
 
-.close {
-    align-self: flex-end;
-    color: #28e;
-    font-size: 5em;
-}
-
-    .close:hover,
-    .close:focus {
-        color: #5cf;
-        text-decoration: none;
+    .deck li {
+        width: calc(100%/4);
+        margin: 0;
+        padding: 0;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
+    .deck .card {
+        margin: 8px;
+    }
+
+    .deck .card_top {
+        border-radius: 8px;
+        background: url(../img/SuperMario.jpg) no-repeat center center;
+        background-size: cover;
+        box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .deck img {
+        position: relative;
+        display: block;
+        height: auto;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 8px;
+        background: transparent;
+        transition: 0.5s all;
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+        opacity: 0;
+    }
+
+img.selected:hover,
+img.match:hover,
+img.incorrect:hover {
+    cursor: default;
+}
+
+img.selected,
+img.incorrect {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    opacity: 1;
+}
+
+img.match {
+    -webkit-animation: match 0.5s;
+    opacity: 1;
+}
+
+@-webkit-keyframes match {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes match {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.score-panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+    .score-panel .stars {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        min-width: 90px;
+        margin: 0;
+        padding: 0;
+    }
+
+        .score-panel .stars li {
+            list-style: none;
+            margin: 0 5px 0 0;
+        }
+
+.fa-star {
+    color: #fbca39;
+}
+
+.score-panel .moves {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    min-width: 90px;
+}
+
+    .score-panel .moves .paragraph_moves {
+        align-items: center;
+    }
+
+.score-panel .timer {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    min-width: 90px;
+}
+
+    .score-panel .timer .paragraph_timer {
+        align-items: center;
+    }
+
+.score-panel #restart,
+.score-panel #advanced {
+    flex-grow: 1;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    background: transparent;
+    font-family: 'Cormorant SC', serif;
+    font-size: 1rem;
+    min-width: 100px;
+    border: none;
+    outline: none;
+}
+
+    .score-panel #restart:hover,
+    .score-panel #advanced:hover {
+        color: #fbca39;
+    }
+
+.winner_message {
+    color: #29282d;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    padding: 2em;
+    left: 50%;
+    top: -100%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: 0.5s all ease-in;
+}
+
+    .winner_message.active {
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        top: 40%;
+        z-index: 100;
+    }
+
+.winner-message .container {
+    position: relative;
+    z-index: 100;
+}
+
+.winner_message .winner_title {
+    font-size: 1.6rem;
+}
+
+.winner_message .line {
+    width: 80%;
+    margin: 1rem auto;
+    border: 1px solid #b3b3b3;
+}
+
+.winner_message .winning_stars {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+    .winner_message .winning_stars li {
+        list-style: none;
+        margin: 0 5px 0 0;
+    }
+
+.play_again {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #fbca39;
+    border: 1px solid #fbca39;
+    margin-top: 1rem;
+    padding: .375rem .75rem;
+    font-family: 'Cormorant SC', serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+    .play_again:hover {
+        background-color: #e1b533;
+        border-color: #e1b533;
+    }
 .modal-img {
     display: inline-block;
     margin: 1em 0 1em;
     width: 20em;
 }
 
-p.stats {
-    font-weight: 600;
-}
-
-    p.stats:last-child {
-        margin-bottom: 1em;
-    }
-
-.play-again-btn {
-    background: #28e;
-    margin-bottom: 1em;
-}
-
-.memory-game {
-    background: linear-gradient(to bottom, #5cf, #28e);
-    border-radius: 1.5em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    height: 35em;
-    margin-bottom: 6em;
-    padding: 0.5em;
-    width: 35em;
-}
-
-.memory-game,
-.card {
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-
-}
-
-.card {
-    background: #fc4;
-    border-radius: 0.5em;
-    height: 7em;
-    width: 7em;
-}
-
-
-img {
-    user-select: none;
-    width: 6em;
-}
-
-.memory-game img {
-    visibility: hidden;
-}
-
-.memory-game
-.card.flip {
-    background: #fff;
-    cursor: default;
-    transform: rotateY(180deg);
-    transition: transform 0.3s linear;
-    pointer-events: none;
-}
-
-.flip img {
-    background: #fff;
-    visibility: visible;
-}
-
-.memory-game .card.match {
-    background: #39d;
-    visibility: visible;
-    cursor: default;
-    animation: pulse 1s;
-}
-
-.match img {
-    background: #39d;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
-    80% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@media screen and (min-width: 550px) {
-    .memory-game {
-        height: 50em;
-        padding: 2em;
-        width: 50em;
-    }
-
-    .card {
-        height: 10em;
-        width: 10em;
-    }
-
-    .memory-game img {
-        width: 9em;
-    }
-
-    .modal-content h2 {
-        font-size: 4em;
-    }
-
-    .play-again-btn {
-        font-size: 1.8em;
-    }
-}
-
-@media screen and (min-width: 800px) {
-
+@media only screen and (max-width: 800px) {
     h1 {
-        font-size: 6em;
+        font-size: 2.2rem;
     }
 
-    p {
-        font-size: 2.3em;
+    h2 {
+        font-size: 1.2rem;
     }
 
-    .memory-game {
-        height: 70em;
-        width: 70em;
+    .deck {
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media only screen and (max-width: 537px) {
+    .score-panel {
+        padding: 0 1rem;
     }
 
-    .card {
-        height: 15em;
-        width: 15em;
+        .score-panel .stars,
+        .score-panel .moves,
+        .score-panel .timer {
+            min-width: calc(100%/3);
+        }
+
+        .score-panel #restart,
+        .score-panel #advanced {
+            padding-top: 0.5rem;
+        }
+}
+
+@media only screen and (max-width: 334px) {
+    h1 {
+        font-size: 1.4rem;
     }
 
-    .memory-game img {
-        width: 13em;
-    }
-
-    .reset-btn {
-        font-size: 0.8em;
-    }
-
-    .footer {
-        font-size: 1.2em;
-    }
-
-    .modal-content h2 {
-        font-size: 5em;
-    }
- 
-    .modal-img {
-        width: 30em;
-    }
-
-    .play-again-btn {
-        font-size: 2em;
+    h2 {
+        font-size: 1.0rem;
     }
 }
